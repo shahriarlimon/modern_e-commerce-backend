@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", apiRoutes)
 app.use(errorMiddleware)
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`express server is running on port ${port}`)
 })
 // Unhandled Promise Rejection
