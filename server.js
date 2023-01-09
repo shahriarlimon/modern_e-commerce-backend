@@ -5,7 +5,7 @@ const connectDb = require('./db/db');
 const apiRoutes = require('./routes/apiRoutes')
 const app = express()
 const port = process.env.port || 4000
-const errorMiddleware = require("./middlewares/error")
+
 
 // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api", apiRoutes)
-app.use(errorMiddleware)
+
 const server = app.listen(port, () => {
   console.log(`express server is running on port ${port}`)
 })
