@@ -32,6 +32,12 @@ const userSchema = new mongoose.Schema({
       required: true,
     },
   },
+  role: {
+    type: String,
+    default: "user"
+  },
+  resetPasswordToken: String,
+  resetPasswordExpire: Date
   /*  address: {
      type: String,
      required: true,
@@ -72,12 +78,7 @@ const userSchema = new mongoose.Schema({
      type: mongoose.Schema.Types.ObjectId,
      ref: 'Order'
    }], */
-  role: {
-    type: String,
-    default: "user"
-  },
-  resetPasswordToken: String,
-  resetPasswordExpire: Date
+
 });
 userSchema.pre('save', async function (next) {
   if (!this.isModified("password")) {
@@ -94,7 +95,7 @@ userSchema.methods.getJwtToken = function () {
 }
 
 userSchema.methods.comparePassword = async function (enteredPassword) {
-  return await bcrypt.compare(this.password, enteredPassword)
+  return await bcrypt.compare(enteredPassword, this.password)
 
 }
 module.exports = mongoose.model('User', userSchema);

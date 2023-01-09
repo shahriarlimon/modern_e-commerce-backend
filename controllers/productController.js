@@ -2,6 +2,8 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
 const ErrorHandler = require("../utils/errorHandler");
 const Product = require("../models/product");
 const ApiFeatures = require("../utils/apiFeatures");
+
+
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
     const resultPerPage = 5;
     const productCount = await Product.countDocuments()
@@ -31,8 +33,8 @@ exports.getSingleProduct = catchAsyncErrors(async (req, res, next) => {
 
 /* for admin */
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
+    req.body.user = req.user.id
     const product = await Product.create(req.body);
-
     res.status(201).json({
         success: true,
         product,
