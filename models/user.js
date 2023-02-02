@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
     minlength: [8, "password should at least be 8 characters long"],
     maxlength: 1024
   },
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  },
   avatar: {
     public_id: {
       type: String,
