@@ -43,46 +43,6 @@ const userSchema = new mongoose.Schema({
   },
   resetPasswordToken: String,
   resetPasswordExpire: Date
-  /*  address: {
-     type: String,
-     required: true,
-     minlength: 2,
-     maxlength: 100
-   },
-   city: {
-     type: String,
-     required: true,
-     minlength: 2,
-     maxlength: 50
-   },
-   state: {
-     type: String,
-     required: true,
-     minlength: 2,
-     maxlength: 50
-   },
-   zipCode: {
-     type: String,
-     required: true,
-     minlength: 5,
-     maxlength: 10
-   },
-   country: {
-     type: String,
-     required: true,
-     minlength: 2,
-     maxlength: 50
-   },
-   phoneNumber: {
-     type: String,
-     required: true,
-     minlength: 10,
-     maxlength: 20
-   },
-   orders: [{
-     type: mongoose.Schema.Types.ObjectId,
-     ref: 'Order'
-   }], */
 
 });
 userSchema.pre('save', async function (next) {

@@ -132,7 +132,7 @@ exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
 
 /* user details for user */
 exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user._id);
     if (!user) return next(new ErrorHandler("user not found", 401))
     res.status(201).json({
         success: true,
