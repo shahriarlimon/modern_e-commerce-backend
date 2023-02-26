@@ -5,7 +5,7 @@ const connectDb = require('./db/db');
 const apiRoutes = require('./routes/apiRoutes')
 const app = express()
 const port = process.env.port || 4000
-
+const allowedOrigins = ['http://localhost:3000', 'https://example.com'];
 
 // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
@@ -17,7 +17,7 @@ process.on("uncaughtException", (err) => {
 connectDb()
 
 app.use(express.json())
-app.use(cors({ origin: true, credentials: true }))
+app.use(cors({ origin: allowedOrigins, credentials: true }))
 
 
 
