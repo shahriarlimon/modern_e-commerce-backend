@@ -5,6 +5,6 @@ const { isAuthenticatedUser } = require('../middlewares/auth');
 const router = express.Router();
 
 router.get("/stripeapikey",  sendApiKey)
-router.post('/process/payment', isAuthenticatedUser, processPayment)
+router.post('/process/payment', processPayment)
 
 module.exports = router;
