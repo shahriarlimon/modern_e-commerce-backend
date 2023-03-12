@@ -5,7 +5,7 @@ const connectDb = require('./db/db');
 const apiRoutes = require('./routes/apiRoutes')
 const app = express()
 const port = process.env.port || 4000
-const allowedOrigins = ['http://localhost:3000', 'https://modern-ecommarce.web.app'];
+const allowedOrigins = ['http://localhost:3000', 'https://modernecommerce.vercel.app'];
 
 // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
