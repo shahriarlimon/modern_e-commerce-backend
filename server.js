@@ -17,7 +17,13 @@ process.on("uncaughtException", (err) => {
 connectDb()
 
 app.use(express.json())
-app.use(cors({ origin: allowedOrigins, credentials: true }))
+app.use(
+  cors({
+    credentials: true,
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 
 
