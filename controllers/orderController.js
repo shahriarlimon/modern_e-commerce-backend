@@ -24,6 +24,7 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     paidAt: Date.now(),
     user: req.user._id,
   });
+  console.log(order)
 
   res.status(201).json({
     success: true,
@@ -64,10 +65,8 @@ exports.myOrders = catchAsyncErrors(async (req, res, next) => {
 
 // get all Orders -- Admin
 exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
-  const orders = await Order.find();
-
+  const orders = await Order.find({});
   let totalAmount = 0;
-
   orders.forEach((order) => {
     totalAmount += order.totalPrice;
   });

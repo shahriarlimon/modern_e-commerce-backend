@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
   res.send("Hello world!Express server is running")
 })
 
-app.use("/api", apiRoutes)
+app.use("/api/v1", apiRoutes)
 
 const server = app.listen(port, () => {
   console.log(`express server is running on port ${port}`)
