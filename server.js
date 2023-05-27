@@ -5,7 +5,6 @@ const connectDb = require('./db/db');
 const apiRoutes = require('./routes/apiRoutes')
 const app = express()
 const port = process.env.port || 4000
-const allowedOrigins = ['http://localhost:3000', 'https://modern-ecommarce.web.app'];
 
 // Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
@@ -19,9 +18,8 @@ connectDb()
 app.use(express.json())
 app.use(
   cors({
-    credentials: true,
-    origin: allowedOrigins,
-    methods: ["GET", "POST", "PUT", "DELETE"],
+      origin: "https://modern-ecommarce.web.app",
+      credentials: true,
   })
 );
 
