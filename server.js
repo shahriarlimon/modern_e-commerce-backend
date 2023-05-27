@@ -18,8 +18,8 @@ connectDb()
 app.use(express.json())
 app.use(
   cors({
-      origin: "https://modern-ecommarce.web.app",
-      credentials: true,
+    origin: "https://modern-ecommarce.web.app",
+    credentials: true,
   })
 );
 
